@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Titles</title>
+
+</head>
+      <!-- Responsive navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Par Impar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/formvalidation" wire:navigate>Rejistrasaun</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/parimpar" wire:navigate>Kalkula</a></li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <body>
+
+        <div class="container d-flex justify-content-center" style="margin-top: 10%">
+            <div class="card">
+                <div class="card-header">
+                    Defini Numeru Par Impar
+                </div>
+                <div class="card-body">
+                    <div class="hatama d-flex justify-content-center">
+
+                        <form action="" class="row row-cols-lg-auto g-3 align-items-center" method="post">
+                            <div class="col-12">
+                                <label class="visually-hidden" for="inlineFormInputGroupUsername">Input Numeru</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">Input Numeru</div>
+                                    <input type="number" class="form-control" name="numeru" placeholder="123"/>
+                                </div>
+                    
+                            
+                                    <span class="text-danger">Error</span>
+                            
+                            </div>
+                    
+                            <div class="col-12">
+                                <button data-mdb-ripple-init type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                        <div class="rezultadu d-flex justify-content-center mt-4">
+                        
+                                <h1>Numeru Par</h1>
+                        
+                        </div>
+                </div>
+            </div>
+    
+        </div>
+        
+    </body>
+</html>
+
