@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IdentidadeController;
 use App\Http\Controllers\ParImpar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -53,3 +54,8 @@ Route::fallback(function () {
 
 Route::view('/parimpar', 'home.parimpar');
 Route::post('/parimpar', [ParImpar::class, 'check']);
+
+
+//Aula Database
+
+Route::get('/dashboard', [IdentidadeController::class, 'dadusDatabase']);
