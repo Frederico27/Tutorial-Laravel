@@ -58,4 +58,5 @@ Route::post('/parimpar', [ParImpar::class, 'check']);
 
 //Aula Database
 
-Route::get('/dashboard', [IdentidadeController::class, 'dadusDatabase']);
+Route::get('/dashboard', [IdentidadeController::class, 'dadusDatabase'])->name('dashboard');
+Route::get('users/{id}', [IdentidadeController::class, 'getDadus'])->name('editdadus');

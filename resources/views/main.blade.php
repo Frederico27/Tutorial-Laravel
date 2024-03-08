@@ -31,6 +31,8 @@
         @yield('konteudu')
     </body>
 
-    <script src="{{ asset("assets/js/bootstrap.js") }}"></script>
+    <script src="{{ asset("assets/js/bs5.js") }}"></script>
+    <script src="{{ asset("assets/js/jquery.js") }}"></script>
+    <script src="{{ asset("assets/js/popper-min.js") }}"></script>
 </html>
 

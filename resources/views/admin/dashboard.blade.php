@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card mt-5 mx-5">
+                <div class="card mt-4">
                     <div class="card-header">
                         <h3 class="card-title">Tabela Estudante</h3>
                     </div>
@@ -26,7 +26,7 @@
                                 <!-- Header husi tabela -->
                                 <thead>
                                     <tr>
-                                        <th>Numeru</th>
+                                        <th>No</th>
                                         <th>Naran</th>
                                         <th>Sexo</th>
                                         <th>Hela Fatin</th>
@@ -42,7 +42,7 @@
                                         <td>{{ $pessoal->naran }}</td>
                                         <td>{{ $pessoal->sexo }}</td>
                                         <td>{{ $pessoal->hela_fatin }}</td>
-                                        <td><a href="/edit">Edit</a> | <a href="#">Apaga</a></td>
+                                        <td><a class="btn btn-warning bx bx-edit" href="{{ route('editdadus', ['id'=>1]) }}"> Edit</a> | <a  class="btn btn-danger bx bx-x-circle" href="#">Apaga</a></td>
                                     </tr>
                                 @endforeach
 
