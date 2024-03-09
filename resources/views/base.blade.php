@@ -13,18 +13,18 @@
       <!-- Responsive navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Par Impar</a>
+            <a class="navbar-brand" href="{{ route('dashboard')}}">Registrasaun</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/formvalidation" wire:navigate>Rejistrasaun</a></li>
                     <li class="nav-item"><a class="nav-link" href="/parimpar" wire:navigate>Kalkula</a></li>
                 </ul>
                 </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </nav>
 
@@ -32,6 +32,7 @@
     @yield('konteudu')
 
    <script src="{{ asset('assets/js/bs5.js') }}"></script>
+   <script src="{{ asset('assets/js/lib.js') }}"></script>
 </body>
 
 </html>

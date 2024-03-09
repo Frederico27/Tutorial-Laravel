@@ -4,6 +4,7 @@ use App\Http\Controllers\IdentidadeController;
 use App\Http\Controllers\ParImpar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Translation\IdentityTranslator;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,9 @@ Route::post('/parimpar', [ParImpar::class, 'check']);
 
 //Aula Database
 
-Route::get('/dashboard', [IdentidadeController::class, 'dadusDatabase'])->name('dashboard');
-Route::get('users/{id}', [IdentidadeController::class, 'getDadus'])->name('editdadus');
+Route::get('dashboard', [IdentidadeController::class, 'dadusDatabase'])->name('dashboard');
+Route::get('edit/estudante/{id}', [IdentidadeController::class, 'getEditDadus'])->name('editEstudante');
+Route::post('edit/estudante', [IdentidadeController::class, 'editDadus'])->name('editAsaun');
+Route::get('apaga/estudante/{id}', [IdentidadeController::class, 'deleteDadus'])->name('apagaEstudante');
+Route::view('aumenta/estudante', 'admin.add')->name('aumentaEstudante');
+Route::post('aumenta/estudane', [IdentidadeController::class, 'aumentaDadus'])->name('asaunAumentaEstudane');
