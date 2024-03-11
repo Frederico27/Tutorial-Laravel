@@ -37,9 +37,9 @@ class IdentidadeController extends Controller
 
         //Insert Dadus ba Database
         Identidade::create([
-            'naran' => $request->naran,
+            'naran' => ucwords($request->naran),
             'sexo' => $request->sexo,
-            'hela_fatin' => $request->hela_fatin,
+            'hela_fatin' => ucwords($request->hela_fatin),
             'tinan' => $request->tinan
         ]);
 
@@ -70,9 +70,9 @@ class IdentidadeController extends Controller
         //Bukad estudante ne'ebe atu edit no enxe nia parametru edit sira foti husi request input user
 
         $identidade->fill([
-            'naran' => $request->naran,
+            'naran' => ucwords($request->naran),
             'sexo' => $request->sexo,
-            'hela_fatin' => $request->hela_fatin,
+            'hela_fatin' => ucwords($request->hela_fatin),
             'tinan' => $request->tinan,
         ]);
 
