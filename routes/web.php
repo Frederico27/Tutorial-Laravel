@@ -59,9 +59,4 @@ Route::post('/parimpar', [ParImpar::class, 'check']);
 
 //Aula Database
 
-Route::get('dashboard', [IdentidadeController::class, 'dadusDatabase'])->name('dashboard');
-Route::get('edit/estudante/{id}', [IdentidadeController::class, 'getEditDadus'])->name('editEstudante');
-Route::post('edit/estudante', [IdentidadeController::class, 'editDadus'])->name('editAsaun');
-Route::get('apaga/estudante/{id}', [IdentidadeController::class, 'deleteDadus'])->name('apagaEstudante');
-Route::view('aumenta/estudante', 'admin.add')->name('aumentaEstudante');
-Route::post('aumenta/estudane', [IdentidadeController::class, 'aumentaDadus'])->name('asaunAumentaEstudane');
+Route::resource('identidade', IdentidadeController::class);

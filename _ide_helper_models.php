@@ -22,18 +22,19 @@ namespace App\Models{
  * @property string $sexo
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante query()
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereHelaFatin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereNaran($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereSexo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereTinan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Estudante whereUpdatedAt($value)
+ * @method static \Database\Factories\IdentidadeFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereHelaFatin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereNaran($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereSexo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereTinan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Identidade whereUpdatedAt($value)
  */
-	class Estudante extends \Eloquent {}
+	class Identidade extends \Eloquent {}
 }
 
 namespace App\Models{

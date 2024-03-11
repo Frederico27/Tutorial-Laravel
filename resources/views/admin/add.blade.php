@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
 
-            <form action="{{ route('asaunAumentaEstudane') }}" method="post">
+            <form action="{{ route('identidade.store') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="naran">Naran</label>

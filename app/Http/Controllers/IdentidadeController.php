@@ -11,20 +11,25 @@ use Illuminate\Support\Facades\DB;
 class IdentidadeController extends Controller
 {
     //Fo sai dadus iha dashboard
-    function dadusDatabase(): Response
+    function index(): Response
     {
-        $dadus = Identidade::all(); // foti dadus all
+        $dadus = Identidade::orderBy('naran')->get(); // foti dadus all
 
         //retorna ba admin dashborad ho dadus husi query all()
         return response()->view('admin.dashboard', ['dadus' => $dadus]);
     }
 
+    function create(): Response
+    {
+        return response()->view('admin.add');
+    }
+
     //Aumenta Dadus Estudante
-    function aumentaDadus(Request $request): RedirectResponse
+    function store(Request $request): RedirectResponse
     {
         //Halo Validasaun ba input sira husi user
         $request->validate([
-            'naran' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:100'],
+            'naran' => ['required', 'regex:/^[a-zA-Z., ]+$/', 'max:100'],
             'sexo' => 'required',
             'hela_fatin' => 'required',
             'tinan' => 'required'
@@ -39,26 +44,24 @@ class IdentidadeController extends Controller
         ]);
 
         //retorna ba admin.dashboard blade ho session susessu hodi halo alerta susessu (flash message)
-        return redirect()->route('dashboard')->with('susessu', 'Aumenta Dadus Susessu');
+        return redirect()->route('identidade.index')->with('susessu', 'Aumenta Dadus Susessu');
     }
 
 
     //Hetan Dadus neebe Edit iha edit form blade
-    function getEditDadus($id): Response
+    function show(Identidade $identidade): Response
     {
-        //Hetan dadus estudante ida espesifiku ba nia ID
-        $estudante = Identidade::find($id);
-
         //retorna ba admin.edit blade hodi hetan dadus sira hodi uza ba edit 
-        return response()->view('admin.edit', ['dadus' => $estudante]);
+        return response()->view('admin.edit', ['dadus' => $identidade]);
     }
 
+
     //Asaun ba Edit dadus
-    function editDadus(Request $request): RedirectResponse
+    function update(Identidade $identidade, Request $request): RedirectResponse
     {
         //Halo Validasaun ba input sira husi user
         $request->validate([
-            'naran' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:100'],
+            'naran' => ['required', 'regex:/^[a-zA-Z., ]+$/', 'max:100'],
             'sexo' => 'required',
             'hela_fatin' => 'required',
             'tinan' => 'required'
@@ -66,8 +69,7 @@ class IdentidadeController extends Controller
 
         //Bukad estudante ne'ebe atu edit no enxe nia parametru edit sira foti husi request input user
 
-        $newDataEstudante = Identidade::find($request->id);
-        $newDataEstudante->fill([
+        $identidade->fill([
             'naran' => $request->naran,
             'sexo' => $request->sexo,
             'hela_fatin' => $request->hela_fatin,
@@ -75,20 +77,18 @@ class IdentidadeController extends Controller
         ]);
 
         //save data edit sira
-        $newDataEstudante->save();
+        $identidade->save();
 
         //retorna ba admin.dashboard blade ho session susessu hodi halo alerta susessu (flash message)
-        return redirect()->route('dashboard')->with('susessu', 'Edit Dadus Susessu');
+        return redirect()->route('identidade.index')->with('susessu', 'Edit Dadus Susessu');
     }
 
 
     //Asaun Apaga Dadus
-    function deleteDadus($id): RedirectResponse
+    function destroy(Identidade $identidade): RedirectResponse
     {
-        //Query buka dadus atu apaga
-        Identidade::destroy($id);
-
+        $identidade->delete();
         //depois apaga retorna ba admin.dashboard
-        return redirect()->route('dashboard');
+        return redirect()->route('identidade.index');
     }
 }

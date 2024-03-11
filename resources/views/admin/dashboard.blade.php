@@ -15,7 +15,7 @@
                 </div>
                 @endif
                 <div class="add mt-3">
-                    <a class="btn btn-primary" href="{{ route('aumentaEstudante') }}">Aumenta+</a>
+                    <a class="btn btn-primary" href="{{ route('identidade.create') }}">Aumenta+</a>
                 </div>
                 <div class="card mt-4">
                     <div class="card-header">
@@ -54,7 +54,12 @@
                                                 <td>{{ $pessoal->sexo }}</td>
                                                 <td>{{ $pessoal->tinan }}</td>
                                                 <td>{{ $pessoal->hela_fatin }}</td>
-                                                <td><a class="btn btn-warning bx bx-edit" href="{{ route('editEstudante', ['id'=>$pessoal->id]) }}"> Edit</a>  <a  class="btn btn-danger bx bx-x-circle" href="{{ route('apagaEstudante', ['id'=> $pessoal->id]) }}" onclick="return confirm_delete()">Apaga</a></td>
+                                                <td><a class="btn btn-warning bx bx-edit" href="{{ route('identidade.show', $pessoal) }}"> Edit</a>
+                                                <form action="{{ route('identidade.destroy', $pessoal) }}" method="POST" style="display: inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger bx bx-x-circle" onclick="return confirm_delete()">Apaga</button></td>    
+                                                </form> 
                                             </tr>
                                         @endforeach
 

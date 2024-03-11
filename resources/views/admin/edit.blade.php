@@ -12,8 +12,9 @@
         </div>
         <div class="card-body">
 
-            <form action="{{ route('editAsaun') }}" method="post">
+            <form action="{{ route('identidade.update', $dadus) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="naran">Naran</label>
                     <input type="hidden" name="id" value="{{ $dadus->id }}">
