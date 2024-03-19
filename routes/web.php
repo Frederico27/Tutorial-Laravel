@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IdentidadeController;
 use App\Http\Controllers\ParImpar;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Translation\IdentityTranslator;
@@ -59,4 +60,15 @@ Route::post('/parimpar', [ParImpar::class, 'check']);
 
 //Aula Database
 
-Route::resource('identidade', IdentidadeController::class);
+Route::resource('identidade', IdentidadeController::class)->middleware('auth');
+
+
+//Login
+
+
+//View ba login
+Route::view('/login', 'login')->name('login');
+//Route ba login
+Route::post('/login', [UserController::class, 'loginPost'])->name('actionLogin');
+//Route ba Logout
+Route::get('/logout', [UserController::class, 'logoutPost'])->name('actionLogout');
