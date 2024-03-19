@@ -4,10 +4,6 @@
     Login
 @endsection
 
-@section('link-login')
-<li class="nav-item"><a class="nav-link active" href="{{ route('login') }}">Login</a></li>
-@endsection
-
 @section('konteudu')
 <div class="container mt-5">
     <div class="row">

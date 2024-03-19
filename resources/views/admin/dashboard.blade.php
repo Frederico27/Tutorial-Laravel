@@ -4,10 +4,6 @@
     Dashboard
 @endsection
 
-@section('link-login')
-<li class="nav-item"><a class="nav-link active" href="{{ route('actionLogout') }}">Logout</a></li>
-@endsection
-
 @section('konteudu')
 <section class="content">
     <div class="container-fluid">
