@@ -66,6 +66,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            {{ $dadus->links() }}
                     </div>
                     <!-- /.card-body -->
                 </div>

@@ -59,16 +59,18 @@ Route::post('/parimpar', [ParImpar::class, 'check']);
 
 
 //Aula Database
-
-Route::resource('identidade', IdentidadeController::class)->middleware('auth');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('identidade', IdentidadeController::class);
+    //Route ba Logout
+    Route::get('/logout', [UserController::class, 'logoutPost'])->name('actionLogout');
+});
 
 //Login
 
 
 //View ba login
-Route::view('/login', 'login')->name('login');
-//Route ba login
-Route::post('/login', [UserController::class, 'loginPost'])->name('actionLogin');
-//Route ba Logout
-Route::get('/logout', [UserController::class, 'logoutPost'])->name('actionLogout');
+Route::group(['middleware' => 'guest'], function () {
+    Route::view('/login', 'login')->name('loginForm');
+    //Route ba login
+    Route::post('/login', [UserController::class, 'loginPost'])->name('actionLogin');
+});

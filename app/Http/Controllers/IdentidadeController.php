@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class IdentidadeController extends Controller
 {
-    //Fo sai dadus iha dashboard
+    //Fo sai dadus iha identidade.index
     function index(): Response
     {
-        $dadus = Identidade::orderBy('naran')->get(); // foti dadus all
+        $dadus = Identidade::orderBy('naran')->paginate(perPage: 5); // foti dadus all
 
         //retorna ba admin dashborad ho dadus husi query all()
         return response()->view('admin.dashboard', ['dadus' => $dadus]);
@@ -43,7 +43,7 @@ class IdentidadeController extends Controller
             'tinan' => $request->tinan
         ]);
 
-        //retorna ba admin.dashboard blade ho session susessu hodi halo alerta susessu (flash message)
+        //retorna ba admin.identidade.index blade ho session susessu hodi halo alerta susessu (flash message)
         return redirect()->route('identidade.index')->with('susessu', 'Aumenta Dadus Susessu');
     }
 
@@ -79,7 +79,7 @@ class IdentidadeController extends Controller
         //save data edit sira
         $identidade->save();
 
-        //retorna ba admin.dashboard blade ho session susessu hodi halo alerta susessu (flash message)
+        //retorna ba admin.identidade.index blade ho session susessu hodi halo alerta susessu (flash message)
         return redirect()->route('identidade.index')->with('susessu', 'Edit Dadus Susessu');
     }
 
@@ -88,7 +88,7 @@ class IdentidadeController extends Controller
     function destroy(Identidade $identidade): RedirectResponse
     {
         $identidade->delete();
-        //depois apaga retorna ba admin.dashboard
+        //depois apaga retorna ba admin.identidade.index
         return redirect()->route('identidade.index');
     }
 }
