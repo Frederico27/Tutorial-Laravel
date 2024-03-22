@@ -7,6 +7,7 @@
     <title>@yield('titulu')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bs5.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+    @livewireStyles
 </head>
 <body>
 
@@ -33,6 +34,7 @@
     {{-- @yield('navbar') --}}
     @yield('konteudu')
 
+    @livewireScripts
    <script src="{{ asset('assets/js/bs5.js') }}"></script>
    <script src="{{ asset('assets/js/lib.js') }}"></script>
 </body>

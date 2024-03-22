@@ -13,6 +13,6 @@ class IdentidadeSeeder extends Seeder
      */
     public function run(): void
     {
-        Identidade::factory()->count(10)->create();
+        Identidade::factory()->count(1000)->create();
     }
 }

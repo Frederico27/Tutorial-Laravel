@@ -13,10 +13,10 @@ class IdentidadeController extends Controller
     //Fo sai dadus iha identidade.index
     function index(): Response
     {
-        $dadus = Identidade::orderBy('naran')->paginate(perPage: 5); // foti dadus all
+        $dadus = Identidade::orderBy('naran')->paginate(perPage: 15); // foti dadus all
 
         //retorna ba admin dashborad ho dadus husi query all()
-        return response()->view('admin.dashboard', ['dadus' => $dadus]);
+        return response()->view('admin.dashboard');
     }
 
     function create(): Response
